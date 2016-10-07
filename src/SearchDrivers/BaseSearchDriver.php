@@ -62,6 +62,22 @@ abstract class BaseSearchDriver implements SearchDriverInterface
 
         return $this;
     }
+    
+     /**
+     * Specify which columns to return.
+     *
+     * @return $this
+     */
+    public function selectColumns($columns)
+    {
+        if(is_array($columns)){
+            $this->columns = implode(',',$columns);
+        } else {
+            $this->columns = $columns;
+        }
+
+        return $this;
+    }
 
     /**
      * Specify the string that is is being searched for.
