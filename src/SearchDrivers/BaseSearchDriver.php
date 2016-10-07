@@ -71,11 +71,10 @@ abstract class BaseSearchDriver implements SearchDriverInterface
     public function selectColumns($columns)
     {
         if(is_array($columns)){
-            $this->columns = implode(',',$columns);
-        } else {
             $this->columns = $columns;
+        } else {
+            $this->columns = explode(',', $columns);
         }
-
         return $this;
     }
 
